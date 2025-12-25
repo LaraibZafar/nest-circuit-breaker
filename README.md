@@ -2,7 +2,7 @@
 
 A robust and easy-to-use circuit breaker implementation for NestJS applications with decorator-based usage with redis as a datastore
 
-[![npm version](https://badge.fury.io/js/nest-circuit-breaker.svg)](https://badge.fury.io/js/nest-circuit-breaker)
+[![npm version](https://badge.fury.io/js/%40laraibzafar%2Fnest-circuit-breaker.svg)](https://www.npmjs.com/package/@laraibzafar/nest-circuit-breaker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -16,9 +16,9 @@ A robust and easy-to-use circuit breaker implementation for NestJS applications 
 ## Installation
 
 ```bash
-npm install nest-circuit-breaker ioredis
+npm install @laraibzafar/nest-circuit-breaker ioredis
 # or
-yarn add nest-circuit-breaker ioredis
+yarn add @laraibzafar/nest-circuit-breaker ioredis
 ```
 
 ## Quick Start
@@ -27,7 +27,7 @@ yarn add nest-circuit-breaker ioredis
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { CircuitBreakerModule } from 'nest-circuit-breaker';
+import { CircuitBreakerModule } from '@laraibzafar/nest-circuit-breaker';
 
 @Module({
   imports: [
@@ -45,7 +45,10 @@ export class AppModule {}
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { CircuitBreaker, UseCircuitBreaker } from 'nest-circuit-breaker';
+import {
+  CircuitBreaker,
+  UseCircuitBreaker,
+} from '@laraibzafar/nest-circuit-breaker';
 
 @Injectable()
 @CircuitBreaker({ threshold: 5, timeout: 30000 })
@@ -106,7 +109,7 @@ Use `forRootAsync` when your configuration depends on other services:
 
 ```typescript
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { CircuitBreakerModule } from 'nest-circuit-breaker';
+import { CircuitBreakerModule } from '@laraibzafar/nest-circuit-breaker';
 
 @Module({
   imports: [
@@ -130,7 +133,7 @@ For advanced use cases, inject `CircuitBreakerService` directly:
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { CircuitBreakerService } from 'nest-circuit-breaker';
+import { CircuitBreakerService } from '@laraibzafar/nest-circuit-breaker';
 
 @Injectable()
 export class CustomService {
@@ -212,7 +215,7 @@ These indicate service degradation. Client errors (4xx) don't trip the circuit.
 Export `CircuitBreakerState` for monitoring:
 
 ```typescript
-import { CircuitBreakerState } from 'nest-circuit-breaker';
+import { CircuitBreakerState } from '@laraibzafar/nest-circuit-breaker';
 
 if (currentState === CircuitBreakerState.OPEN) {
   console.warn('Circuit breaker is open - service degraded');
@@ -224,7 +227,7 @@ if (currentState === CircuitBreakerState.OPEN) {
 In your tests, you can mock the circuit breaker:
 
 ```typescript
-import { CircuitBreakerService } from 'nest-circuit-breaker';
+import { CircuitBreakerService } from '@laraibzafar/nest-circuit-breaker';
 
 const mockCircuitBreaker = {
   execute: jest.fn((fn) => fn()),
