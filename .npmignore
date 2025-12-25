@@ -1,0 +1,38 @@
+# Source files (we ship compiled dist/ only)
+src/
+test/
+
+# Configuration files
+tsconfig.json
+tsconfig.build.json
+nest-cli.json
+jest.config.js
+eslint.config.mjs
+.eslintrc.js
+.prettierrc
+
+# Development files
+.gitignore
+.git/
+.github/
+.vscode/
+.idea/
+.cursor/
+
+# Documentation (except README)
+*.md
+!README.md
+
+# CI/CD
+.travis.yml
+.circleci/
+.github/
+
+# Misc
+coverage/
+*.log
+.DS_Store
+node_modules/
+*.tsbuildinfo
+.env
+.env.*
