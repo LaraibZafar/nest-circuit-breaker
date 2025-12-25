@@ -1,5 +1,5 @@
 {
-  "name": "nest-circuit-breaker",
+  "name": "@LaraibZafar/nest-circuit-breaker",
   "version": "0.0.1",
   "description": "A NestJS circuit breaker implementation with decorators for resilient microservices",
   "author": "LaraibZafar",
