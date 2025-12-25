@@ -98,10 +98,17 @@ export class CircuitBreakerService {
 
         return result;
       } catch (error) {
-        console.log('CircuitBreakerService error', error);
+        console.error(
+          'CircuitBreakerService error',
+          error,
+          (error as HttpException).getStatus(),
+          error instanceof HttpException,
+        );
+
+        /** @todo improve / iterate on error detection */
         if (
-          error instanceof HttpException &&
-          (error.getStatus() >= 500 || error.getStatus() === 429)
+          (error as HttpException).getStatus() >= 500 ||
+          (error as HttpException).getStatus() === 429
         ) {
           await this.handleCircuitBreakerError(key, timeout);
         }
